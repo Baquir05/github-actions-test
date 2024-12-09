@@ -28,6 +28,15 @@ jobs:
       run: |
         echo "Triggered by: $GITHUB_ACTOR"
 
+    - name: get email
+      id: test
+      uses: evvanErb/get-github-email-by-username-action@v1.25
+      with:
+          github-username: '$GITHUB_ACTOR' 
+          
+    - name: Print the found email
+      run: echo "The email is ${{ steps.test.outputs.email }}"
+
 
     - name: Build with Maven
       run: mvn -B package --file calc/pom.xml
