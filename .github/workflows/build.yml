@@ -24,5 +24,10 @@ jobs:
         distribution: 'adopt'
         java-version: '11'
 
+    - name: Get Triggering User Name
+      run: |
+        echo "Triggered by: $GITHUB_ACTOR"
+
+
     - name: Build with Maven
       run: mvn -B package --file calc/pom.xml
